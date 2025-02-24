@@ -10,6 +10,7 @@ dash.register_page(
     name="Strona Główna",
     title=f"Lista serwerów Minecraft - {brand_name}",
     description="Najlepsza lista serwerów Minecraft w Polsce! Przeglądaj serwery survival, skyblock, bedwars i wiele innych. Znajdź idealne miejsce do gry!",
+    image="gamepad.png"
 )
 
 

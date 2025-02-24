@@ -9,6 +9,7 @@ dash.register_page(
     name="Dodaj Serwer",
     title=f"Dodaj serwer na liście serwerów Minecraft - {brand_name}",
     description=f"Dodaj swój serwer Minecraft do listy na {brand_name}! Zdobądź nowych graczy i zwiększ popularność swojego serwera.",
+    image="gamepad.png"
 )
 
 layout = html.Div(
@@ -34,6 +35,7 @@ layout = html.Div(
                     type="text",
                     className="add-bar",
                     placeholder="Wpisz domenę lub adres IPv4...",
+                    maxLength=100,
                 ),
                 dbc.Button(
                     ["Dodaj ", html.I(className="fa-solid fa-plus")],

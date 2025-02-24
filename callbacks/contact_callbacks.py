@@ -69,6 +69,18 @@ def send_user_request(
 
     if n_clicks > 0 and user_name and user_email and user_message:
 
+        if len(user_name) > 100 or len(user_email) > 100 or len(user_message) > 5000:
+            return (
+                0,
+                1,
+                "",
+                "",
+                "",
+                True,
+                "Błąd",
+                "Przekroczono maksymalną ilość znaków!",
+            )
+
         if not email_checker(user_email):
             return (
                 0,

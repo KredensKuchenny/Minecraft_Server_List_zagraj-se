@@ -9,6 +9,7 @@ dash.register_page(
     name="Kontakt",
     title=f"Kontakt z listą serwerów Minecraft - {brand_name}",
     description=f"Skontaktuj się z nami w sprawie listy serwerów Minecraft na {brand_name}. Masz pytania lub chcesz zgłosić serwer? Napisz do nas!",
+    image="gamepad.png"
 )
 
 layout = html.Div(
@@ -47,6 +48,7 @@ layout = html.Div(
                                     type="text",
                                     className="input-bar",
                                     placeholder="Wpisz swoje imię i nazwisko",
+                                    maxLength=100,
                                 ),
                                 html.Div(id="name-error", className="text-danger mt-1"),
                             ]
@@ -63,6 +65,7 @@ layout = html.Div(
                                     type="email",
                                     className="input-bar",
                                     placeholder="Wpisz swój adres e-mail",
+                                    maxLength=100,
                                 ),
                                 html.Div(
                                     id="email-error", className="text-danger mt-1"
@@ -81,6 +84,7 @@ layout = html.Div(
                                     className="input-bar",
                                     placeholder="Wpisz swoją wiadomość",
                                     rows=4,
+                                    maxLength=5000,
                                 ),
                                 html.Div(
                                     id="message-error", className="text-danger mt-1"
