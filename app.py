@@ -33,10 +33,10 @@ if production_mode:
     server = app.server
 else:
     if __name__ == "__main__":
-        background_process_1 = threading.Thread(target=list_updater, daemon=True)
-        background_process_2 = threading.Thread(target=servers_updater, daemon=True)
+        background_thread_1 = threading.Thread(target=list_updater, daemon=True)
+        background_thread_2 = threading.Thread(target=servers_updater, daemon=True)
 
-        background_process_1.start()
-        background_process_2.start()
+        background_thread_1.start()
+        background_thread_2.start()
 
         app.run(debug=debug_mode)
