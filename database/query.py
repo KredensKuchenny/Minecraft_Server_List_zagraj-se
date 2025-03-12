@@ -199,13 +199,21 @@ def set_server_offline(collection: Collection, server_id: str) -> bool:
 
     result = collection.update_one(
         {"_id": ObjectId(server_id)},
-        {
-            "$set": {
-                "server_status": False,
-                "server_last_check_timestamp": now,
-                "server_last_offline_timestamp": now,
+        [
+            {
+                "$set": {
+                    "server_last_check_timestamp": now,
+                    "server_last_offline_timestamp": {
+                        "$cond": {
+                            "if": {"$eq": ["$server_status", True]},
+                            "then": now,
+                            "else": "$server_last_offline_timestamp",
+                        }
+                    },
+                    "server_status": False,
+                }
             }
-        },
+        ],
     )
 
     return result.modified_count > 0
